@@ -1,0 +1,31 @@
+--- # multitask script
+- hosts: fedora:ubuntu
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: install tar in fedora
+      action: yum pkg=tar state=present
+      when: ansible_os_family=="RedHat"
+    - name: install tar in ubuntu
+      action: apt pkg=tar state=present
+      when: ansible_os_family=="Debian"
+    - name: install zip in fedora
+      action: yum pkg=zip state=present
+      when: ansible_os_family=="RedHat"
+    - name: install zip in ubuntu
+      action: apt pkg=zip state=present
+      when: ansible_os_family=="Debian" 
+    - name: install unzip in Fedora
+      action: yum pkg=unzip state=present
+      when: ansible_os_family=="RedHat"
+    - name: install unzip in ubuntu
+      action: apt pkg=zip state=present
+      when: ansible_os_family=="Debian"
+    - name: install tree in Fedora
+      action: yum pkg=tree state=present
+      when: ansible_os_family=="RedHat"
+    - name: install tree in ubuntu
+      action: apt pkg=tree state=present
+      when: ansible_os_family=="Debian"
+...
