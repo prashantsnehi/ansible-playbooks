@@ -1,0 +1,9 @@
+--- # example of basic task
+- hosts: fedora
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks: 
+    - name: install tree 
+      yum: pkg=tree state=present
+...

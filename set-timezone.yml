@@ -1,0 +1,8 @@
+--- # set timezone to Asia/Dili
+- hosts: all
+  user: ansible
+  become: yes
+  tasks: 
+    - name: update timezone to Asia/Dili
+      command: timedatectl set-timezone Asia/Dili
+...
