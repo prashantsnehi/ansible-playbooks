@@ -1,0 +1,22 @@
+--- # using loops in the playbook
+- hosts: fedora:ubuntu
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks: 
+    - name: add a list of users
+      user: name='{{item}}' state=present
+      with_items:
+        - rohit
+        - yashavi
+        - shubman
+        - virat
+        - rishabh
+        - rahul
+        - ravindra
+        - ashwin
+        - akshar
+        - siraj
+        - jaspreet
+...
+
