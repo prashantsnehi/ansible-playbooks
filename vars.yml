@@ -1,0 +1,13 @@
+--- # playbook contains variables to install packages
+- hosts: fedora
+  user: ansible
+  become: yes
+  connection: ssh
+  vars: 
+    pkgname: httpd
+  tasks:
+    - name: install packages to the hosts machine
+      action: yum name='{{pkgname}}' state=absent
+...
+
+
