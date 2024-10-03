@@ -1,0 +1,12 @@
+--- # installing multiple packages using variables
+
+- hosts: ubuntu 
+  become: true
+  vars:
+    packages: [ 'vim', 'git', 'curl' ]
+  tasks:
+    - name: Install Packages
+      apt: 
+        name: "{{ item }}"
+        state: latest
+      with_items: "{{ packages }}"
