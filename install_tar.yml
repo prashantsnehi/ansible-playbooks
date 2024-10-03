@@ -1,0 +1,18 @@
+--- # this is test playbook to install tar
+- hosts: fedora
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks: 
+    - name: installing packages on the servers
+      yum: name='{{item}}' state=present
+      with_items:
+        - tar 
+        - unzip
+        - tree
+        - httpd
+      notify: restart httpd
+  handlers: 
+    - name: restart httpd
+      service: name=httpd state=restarted
+...
