@@ -1,0 +1,9 @@
+--- # update timezone to IST Asia/Dili
+- hosts: fedora
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks: 
+    - name: set timezone to Asia/Dili
+      timezone: 
+        name: Asia/Dili 
