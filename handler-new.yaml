@@ -1,0 +1,17 @@
+--- # handler example
+- hosts: fedora
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks: 
+    - name: installation of httpd service
+      yum: 
+        name: httpd
+        state: present
+      notify: restart httpd
+  handlers: 
+    - name: restart httpd
+      service: 
+        name: httpd
+        state: restarted
+...    

@@ -1,0 +1,14 @@
+--- # installation of multiple packages
+- hosts: fedora
+  user: ansible
+  become: yes
+  connection: ssh
+  vars: 
+    packages: [ "vim","zip","unzip","tar" ]
+  tasks:
+    - name: installation of multiple packages without depencies on each other
+      yum: 
+        name: "{{ item }}" 
+        state: present
+      with_items: "{{ packages }}"
+...

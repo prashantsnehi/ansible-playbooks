@@ -1,0 +1,23 @@
+--- # example of multitask progress
+- hosts: fedora
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks: 
+    - name: installation of tar packages
+      yum: 
+        name: tar
+        state: present
+    - name: installation of zip
+      yum: 
+        name: zip
+        state: present
+    - name: installation of unzip
+      yum:
+        name: unzip
+        state: present
+    - name: installation of vim
+      yum: 
+        name: vim
+        state: present
+...

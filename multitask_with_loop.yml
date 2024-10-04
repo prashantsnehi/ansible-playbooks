@@ -1,0 +1,14 @@
+--- # installation or removal of packages with loop
+- hosts: fedora
+  user: ansible
+  become: yes
+  connection: ssh
+  vars: 
+    packages: [ 'tar','zip','unzip','tree' ]
+  tasks:
+    - name: installation of packages
+      yum: 
+        name: '{{ item }}'
+        state: present
+      with_items: '{{ packages }}'
+... 
