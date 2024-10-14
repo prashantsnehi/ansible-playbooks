@@ -1,9 +1,8 @@
---- # update timezone to IST Asia/Dili
-- hosts: fedora
+--- # update timezone
+- hosts: all
   user: ansible
   become: yes
-  connection: ssh
   tasks: 
-    - name: set timezone to Asia/Dili
-      timezone: 
-        name: Asia/Dili 
+    - name: update timezone
+      command: timedatectl set-timezone Asia/Dili
+... 
